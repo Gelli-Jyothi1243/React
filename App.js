@@ -1,17 +1,16 @@
-import React,{useState} from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
-const App = () => {
-  const [count,setCount]=useState(0);
-  const update=()=>{
-    setCount(count+1);
-    
-  };
+function App() {
   return (
-    <div>
-      <h1>Count:{count}</h1>
-      <button onClick={update}>Increment</button>
-    </div>
-  )
-};      
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 export default App;
